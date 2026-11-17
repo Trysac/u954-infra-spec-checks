@@ -1,0 +1,1 @@
+{"lang": "ruby", "package": "u954-infra-spec-checks", "commands": {"install": [["bundle", "install"]], "check": [["ruby", "scripts/check.rb"]]}}

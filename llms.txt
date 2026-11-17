@@ -1,0 +1,16 @@
+# infra-spec-checks
+
+> Declarative checks for servers and containers that verify listening ports, installed packages, running services and file modes from proc files, without a shell on the input Gem `u954-infra-spec-checks`, module `Trysac::InfraSpecChecks`, MIT licensed, Ruby >= 4.0,
+> standard library only.
+
+## Docs
+
+- [README](README.md): problem, install, usage example
+- [AGENTS](AGENTS.md): commands, folder map, conventions, limits
+- [Architecture](docs/ARCHITECTURE.md): shape of the library and its public API
+- [Testing](docs/TESTING.md): how to run and extend the specs
+
+## Optional
+
+- [Stack](docs/STACK.md): tools used and discarded
+- [Changelog](CHANGELOG.md): release history
