@@ -12,6 +12,10 @@ AllCops:
     - "vendor/**/*"
     - ".bundle/**/*"
 
+# Every repository is LF (.gitattributes); the default `native` demands CRLF on the Windows CI runner (u954).
+Layout/EndOfLine:
+  EnforcedStyle: lf
+
 Style/StringLiterals:
   EnforcedStyle: double_quotes
 
