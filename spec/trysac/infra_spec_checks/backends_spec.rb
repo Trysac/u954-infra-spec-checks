@@ -50,7 +50,7 @@ RSpec.describe "backends and runner" do
     expect(code_of { IC::Backends::Fake.new([]) }).to eq(:invalid_checks)
   end
 
-  it "the Open3 runner runs argv arrays without a shell", :aggregate_failures do
+  it "the Open3 runner runs argv arrays without a shell", :aggregate_failures, if: !Gem.win_platform? do
     runner = IC::Runner::Open3Runner.new
     expect(runner.call(["echo", "hi; ls"], timeout: 5)).to eq(["hi; ls\n", "", 0])
     expect(runner.call(["sh", "-c", "echo err >&2; exit 3"], timeout: 5)).to eq(["", "err\n", 3])
@@ -62,7 +62,7 @@ RSpec.describe "backends and runner" do
     expect { IC::Runner::Open3Runner.new.call(%w[sleep 5], timeout: 0.2) }.to raise_error(IC::CommandTimeout)
   end
 
-  it "the Open3 runner reports signal exits as status 1" do
+  it "the Open3 runner reports signal exits as status 1", if: !Gem.win_platform? do
     expect(IC::Runner::Open3Runner.new.call(["sh", "-c", "kill -9 $$"], timeout: 5)[2]).to eq(1)
   end
 end
