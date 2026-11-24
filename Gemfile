@@ -9,7 +9,7 @@ gemspec
 group :development do
   gem "bundler-audit", "~> 0.9"
   gem "rspec", "~> 3.13"
-  gem "rubocop", "~> 1.81"
+  gem "rubocop", "~> 1.92"
   gem "rubocop-rspec", "~> 3.7"
   gem "simplecov", "~> 0.22"
   gem "yard", "~> 0.9"
