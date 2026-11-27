@@ -49,7 +49,6 @@ Serverspec and Goss are the best-known alternatives. This gem builds no shell co
 - Errors: `Trysac::InfraSpecChecks::Error` (a subclass of `ArgumentError`) carries a `code` Symbol: `:invalid_port`, `:invalid_name`, `:invalid_path`, `:invalid_mode`, `:invalid_checks`, `:input_too_large`, `:unsupported_os`, `:command_failed`, `:timeout`, `:usage`. Messages never contain more than 200 characters of input.
 - Limits: names match `/\A[A-Za-z0-9][A-Za-z0-9._+:@-]{0,127}\z/`; paths are absolute, at most 4096 bytes, without NUL or newline; container names are at most 128 characters; a checks file is at most 1048576 bytes and at most 1000 checks; port must be from 1 to 65535.
 - Probes: OS from `/etc/os-release` (Alpine uses `apk`, Debian and Ubuntu use `dpkg-query`, Fedora, RHEL, Rocky and AlmaLinux use `rpm`, other systems raise `:unsupported_os`); ports from `/proc/net/tcp` and `/proc/net/tcp6`; services via `systemctl is-active` when `/run/systemd/system` exists, otherwise the process name in `/proc/[0-9]*/comm`; files via `stat -c '%a %U %G %F'`.
-- `Trysac::InfraSpecChecks::Text.normalize(text)` trims and lower-cases text and raises `BlankInputError` for blank input.
 
 Security model and known limits: [docs/SECURITY.md](docs/SECURITY.md).
 
